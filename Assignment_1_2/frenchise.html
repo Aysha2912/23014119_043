@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Golden Bean - Franchise</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body class="bg-beige-50 font-['Roboto']">
+
+<!-- Navbar -->
+<header class="bg-white shadow-md">
+  <div class="container mx-auto flex items-center justify-between p-4">
+    <h1 class="text-2xl font-playfair font-bold text-brown-700">Golden Bean</h1>
+    <nav class="space-x-6">
+      <a href="index.html" class="text-brown-700 hover:text-yellow-600">Home</a>
+      <a href="menu.html" class="text-brown-700 hover:text-yellow-600">Menu</a>
+      <a href="reviews.html" class="text-brown-700 hover:text-yellow-600">Reviews</a>
+      <a href="about.html" class="text-brown-700 hover:text-yellow-600">About</a>
+      <a href="contact.html" class="text-brown-700 hover:text-yellow-600">Contact</a>
+      <a href="franchise.html" class="text-yellow-600 font-bold">Franchise</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Franchise Section -->
+<section class="container mx-auto px-4 py-12">
+  <h2 class="text-4xl font-playfair text-center mb-8 text-brown-700">Franchise With Us</h2>
+
+  <p class="text-center text-gray-700 mb-12">Interested in bringing Golden Bean to your city? Fill out the form below and our team will get in touch!</p>
+
+  <form class="max-w-2xl mx-auto bg-white p-8 shadow-lg rounded-lg space-y-6">
+    <input type="text" placeholder="Full Name" required class="w-full border border-gray-300 p-3 rounded">
+    <input type="email" placeholder="Email Address" required class="w-full border border-gray-300 p-3 rounded">
+    <input type="tel" placeholder="Phone Number" required class="w-full border border-gray-300 p-3 rounded">
+    <input type="text" placeholder="Desired Location/City" required class="w-full border border-gray-300 p-3 rounded">
+    
+    <select required class="w-full border border-gray-300 p-3 rounded">
+      <option value="">Investment Budget</option>
+      <option value="under-50k">Under $50,000</option>
+      <option value="50k-100k">$50,000–$100,000</option>
+      <option value="100k-200k">$100,000–$200,000</option>
+      <option value="over-200k">Over $200,000</option>
+    </select>
+    
+    <textarea placeholder="Tell us about your vision" required class="w-full border border-gray-300 p-3 rounded h-32"></textarea>
+
+    <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white p-3 rounded font-semibold">Submit</button>
+  </form>
+</section>
+
+<!-- Footer -->
+<footer class="bg-white shadow-inner py-6 mt-12">
+  <div class="text-center text-gray-500 text-sm">
+    &copy; 2025 Golden Bean. All Rights Reserved.
+  </div>
+</footer>
+
+</body>
+</html>
