@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Golden Bean Cafe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="a1style.css">
+</head>
+<body>
+
+<!-- Popup Notification -->
+<div id="popup" class="popup"></div>
+
+<script>
+// Function to show popup
+function showPopup(message) {
+  const popup = document.getElementById('popup');
+  popup.textContent = message;
+  popup.classList.add('show');
+
+  // Hide popup after 3 seconds
+  setTimeout(() => {
+    popup.classList.remove('show');
+  }, 3000);
+}
+
+// Handle Delivery Form
+function submitDeliveryForm(event) {
+  event.preventDefault();
+  showPopup('Your order has been placed! We\'ll deliver soon.');
+  event.target.reset();
+}
+
+// Handle Contact Form
+function submitContactForm(event) {
+  event.preventDefault();
+  showPopup('Thank you for contacting us! We will get back to you soon.');
+  event.target.reset();
+}
+
+// Handle Franchise Form
+function submitFranchiseForm(event) {
+  event.preventDefault();
+  showPopup('Thank you! Our franchise team will reach out to you shortly.');
+  event.target.reset();
+}
+
+// Hook forms to submit functions
+document.addEventListener('DOMContentLoaded', () => {
+  const deliveryForm = document.getElementById('delivery-form');
+  const contactForm = document.getElementById('contact-form');
+  const franchiseForm = document.getElementById('franchise-form');
+
+  if (deliveryForm) deliveryForm.addEventListener('submit', submitDeliveryForm);
+  if (contactForm) contactForm.addEventListener('submit', submitContactForm);
+  if (franchiseForm) franchiseForm.addEventListener('submit', submitFranchiseForm);
+});
+</script>
+
+<header>
+  <h1>Golden Bean</h1>
+  <nav id="navbar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#delivery">Delivery</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#franchise">Franchise</a></li>
+    </ul>
+  </nav>
+  <button onclick="toggleNav()" id="menu-toggle">☰</button>
+</header>
+
+<section class="hero" id="home">
+  <h2>Welcome to Golden Bean</h2>
+  <h5>Where every sip feels like home</h5>
+</section>
+
+<h2>Our Menu</h2>
+<div class="menu-items">
+  <div class="card">
+    <img src="images (12).jpeg" alt="Espresso">
+    <div class="card-content">
+      <h3>Espresso</h3>
+      <p class="desc">Rich and bold espresso shot.</p>
+      <p class="price">$2.50</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="download (10).jpeg" alt="Cappuccino">
+    <div class="card-content">
+      <h3>Cappuccino</h3>
+      <p class="desc">Espresso with steamed milk and foam.</p>
+      <p class="price">$3.50</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images (13).jpeg" alt="Latte">
+    <div class="card-content">
+      <h3>Latte</h3>
+      <p class="desc">Smooth blend of espresso and milk.</p>
+      <p class="price">$4.00</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="download (11).jpeg" alt="Mocha">
+    <div class="card-content">
+      <h3>Mocha</h3>
+      <p class="desc">Chocolate, espresso, and steamed milk.</p>
+      <p class="price">$4.50</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images (14).jpeg" alt="Iced Coffee">
+    <div class="card-content">
+      <h3>Iced Coffee</h3>
+      <p class="desc">Chilled coffee over ice.</p>
+      <p class="price">$3.80</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="images (15).jpeg" alt="Flat White">
+    <div class="card-content">
+      <h3>Flat White</h3>
+      <p class="desc">Espresso with velvety steamed milk.</p>
+      <p class="price">$3.60</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="reviews">
+  <h2>Customer Reviews</h2>
+  <div class="reviews">
+    <p>"Golden Bean serves the best artisan coffee in the city. Absolutely loved the vibe!" – ZOHA</p>
+    <p>"The real vibe here" – AFSHEEN</p>
+    <p>Absolutely fine taste -KINZA</p>
+    <p>Relaxing atmosphere, excellent brews, and lovely staff. A hidden gem! -LAIBA</p>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <h2>About Us</h2>
+  <p>At Golden Bean, we believe coffee is more than a drink — it's a moment, an experience, a story shared. Crafted with love, enjoyed with passion.</p>
+</section>
+
+<section class="section" id="delivery">
+  <h2>Delivery</h2>
+  <p>Get your favorite coffee delivered to your doorstep!</p>
+  <form id="delivery-form" onsubmit="submitDeliveryForm(event)">
+    <input type="text" id="deliv-name" placeholder="Your Name" required>
+    <input type="tel" id="deliv-phone" placeholder="Phone Number" required>
+    <input type="text" id="deliv-address" placeholder="Delivery Address" required>
+    <select id="deliv-item" required>
+      <option value="">Select Item</option>
+      <option value="espresso">Espresso</option>
+      <option value="cappuccino">Cappuccino</option>
+      <option value="latte">Latte</option>
+      <option value="mocha">Mocha</option>
+      <option value="iced">Iced Coffee</option>
+    </select>
+    <button type="submit">Order Now</button>
+  </form>
+</section>
+
+<section class="section" id="contact">
+  <h2>Contact Us</h2>
+  <form id="contact-form" onsubmit="submitContactForm(event)">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <textarea id="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<section class="section" id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <div>
+        <img src="cafeinterior.jpeg" alt="Cafe Interior">
+    <h4>Cafe Interior</h4></div>
+      <div><img src="cafe.jpeg" alt="Cafe">
+    <h4>Morning View</h4></div>
+     <div> <img src="coffeebeans.webp" alt="Coffee Beans"><h4>Coffee Beans</h4></div>
+   <div> <img src="images (10).jpeg" alt="latte"><h4>Latte</h4></div>
+      <div><img src="drinking-coffee-at-a-cafe-0722211.webp" alt="Barista at Work"><h4>Barista at Work</h4></div>
+    </div>
+  </section>
+  
+
+<section class="section" id="franchise">
+  <h2>Franchise With Us</h2>
+  <p>Interested in bringing Golden Bean to your city? Fill out the form below and our team will get in touch!</p>
+  <form id="franchise-form" onsubmit="submitFranchiseForm(event)">
+    <input type="text" id="franchise-name" placeholder="Full Name" required>
+    <input type="email" id="franchise-email" placeholder="Email Address" required>
+    <input type="tel" id="franchise-phone" placeholder="Phone Number" required>
+    <input type="text" id="franchise-location" placeholder="Desired Location/City" required>
+    <select id="franchise-investment" required>
+      <option value="">Investment Budget</option>
+      <option value="under-50k">Under $50,000</option>
+      <option value="50k-100k">$50,000–$100,000</option>
+      <option value="100k-200k">$100,000–$200,000</option>
+      <option value="over-200k">Over $200,000</option>
+    </select>
+    <textarea id="franchise-message" placeholder="Tell us about your vision" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2025 Golden Bean. All Rights Reserved.</p>
+</footer>
+
+<script>
+function toggleNav() {
+  document.getElementById('navbar').classList.toggle('active');
+}
+
+function showPopup(msg) {
+  const pop = document.getElementById('popup');
+  pop.textContent = msg;
+  pop.classList.add('show');
+  setTimeout(() => pop.classList.remove('show'), 3000);
+}
+
+// 1. Dynamic Menu with images, descriptions, and prices
+<section class="section" id="menu">
+  <h2>Our Menu</h2>
+  <div class="menu-items">
+    <div class="card">
+      <img src="" alt="Espresso">
+      <div class="card-content">
+        <h3>Espresso</h3>
+        <p class="desc">Rich and bold espresso shot.</p>
+        <p class="price">$2.50</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Cappuccino">
+      <div class="card-content">
+        <h3>Cappuccino</h3>
+        <p class="desc">Espresso with steamed milk and foam.</p>
+        <p class="price">$3.50</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521305916504-4a1121188589" alt="Latte">
+      <div class="card-content">
+        <h3>Latte</h3>
+        <p class="desc">Smooth blend of espresso and milk.</p>
+        <p class="price">$4.00</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772" alt="Mocha">
+      <div class="card-content">
+        <h3>Mocha</h3>
+        <p class="desc">Chocolate, espresso, and steamed milk.</p>
+        <p class="price">$4.50</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1589992760131-c24d456d7d5a" alt="Iced Coffee">
+      <div class="card-content">
+        <h3>Iced Coffee</h3>
+        <p class="desc">Chilled coffee over ice.</p>
+        <p class="price">$3.80</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1546823693-6b973d7a1b70" alt="Flat White">
+      <div class="card-content">
+        <h3>Flat White</h3>
+        <p class="desc">Espresso with velvety steamed milk.</p>
+        <p class="price">$3.60</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+function renderMenu() {
+  const container = document.getElementById('menuItems');
+  menu.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <img src="${item.img}" alt="${item.name}">
+      <div class="card-content">
+        <h3>${item.name}</h3>
+        <p class="desc">${item.desc}</p>
+        <p class="price">${item.price}</p>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+renderMenu();
+
+// 2. Form Submissions
+function submitDeliveryForm(e) {
+  e.preventDefault();
+  showPopup('Your order has been placed! We\'ll deliver soon.');
+  document.getElementById('delivery-form').reset();
+}
+
+function submitContactForm(e) {
+  e.preventDefault();
+  showPopup('Thank you for contacting us! We will be in touch soon.');
+  document.getElementById('contact-form').reset();
+}
+
+function submitFranchiseForm(e) {
+  e.preventDefault();
+  showPopup('Thank you! Our franchise team will reach out to you shortly.');
+  document.getElementById('franchise-form').reset();
+}
+
+// 3. Additional JS (scroll, lazy-load, etc.)
+</script>
+
+</body>
+</html>
